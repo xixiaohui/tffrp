@@ -6,8 +6,8 @@ export default function Home() {
       <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
         <Image
           className="dark:invert"
-          src="/icon.jpg"
-          alt="Next.js logo"
+          src="/icon.png"
+          alt="tffrp logo"
           width={80}
           height={80}
           priority
