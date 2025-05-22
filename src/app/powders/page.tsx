@@ -1,33 +1,4 @@
-// // app/chopped-strands/page.tsx
-// import { MaterialList } from "@/components/MaterialList";
-// import { supabase } from "@/lib/supabase";
 
-// export default async function ChoppedStrandsPage() {
-//   const { data, error } = await supabase
-//     .from("tf_glass_fiber_chopped_strands")
-//     .select("id, name, length_mm, diameter_um, compatibility, application, tf_brands(name), tf_suppliers(name)");
-
-//   if (error) {
-//     return <div className="text-red-500 p-4">加载失败：{error.message}</div>;
-//   }else{
-//     console.log('Supabase 查询数据:', data);
-//   }
-
-//   const fields = [
-//     { key: "length_mm", label: "长度 (mm)" },
-//     { key: "diameter_um", label: "直径 (μm)" },
-//     { key: "compatibility", label: "适用树脂" },
-//     { key: "application", label: "应用" },
-//   ];
-
-//   return (
-//     <MaterialList
-//       title="玻璃纤维短切原丝"
-//       items={data || []}
-//       fields={fields}
-//     />
-//   );
-// }
 
 // CREATE TABLE tf_glass_fiber_powders (
 //     id UUID PRIMARY KEY,
