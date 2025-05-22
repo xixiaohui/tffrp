@@ -43,6 +43,8 @@
 // app/powders/page.tsx
 import { supabase } from "@/lib/supabase";
 import { MaterialList } from "@/components/MaterialList";
+import {MaterialItem} from "@/components/MaterialList";
+
 
 export default async function GlassFiberPowdersPage() {
   const { data, error } = await supabase
@@ -62,10 +64,12 @@ export default async function GlassFiberPowdersPage() {
     { key: "application", label: "应用" },
   ];
 
+  const powders = data as unknown as MaterialItem[]
+
   return (
     <MaterialList
       title="玻璃纤维粉末"
-      items={data || []}
+      items={powders || []}
       fields={fields}
     />
   );

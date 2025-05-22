@@ -2,12 +2,12 @@
 'use client'
 import { Card, CardContent } from '@/components/ui/card';
 
-interface MaterialItem {
+export interface MaterialItem {
   id: string;
   name: string;
   application?: string;
-  tf_brands?: { name: string }[] | null;
-  tf_suppliers?: { name: string }[] | null;
+  tf_brands?: { name: string } | null;
+  tf_suppliers?: { name: string } | null;
   [key: string]: any;
 }
 
@@ -32,8 +32,8 @@ export function MaterialList({ title, items, fields }: Props) {
                   {item[key] || '—'}
                 </p>
               ))}
-              <p><span className="font-medium">品牌：</span>{item.tf_brands?.[0]?.name || '—'}</p>
-              <p><span className="font-medium">供应商：</span>{item.tf_suppliers?.[0]?.name || '—'}</p>
+              <p><span className="font-medium">品牌：</span>{item.tf_brands?.name || '—'}</p>
+              <p><span className="font-medium">供应商：</span>{item.tf_suppliers?.name || '—'}</p>
             </CardContent>
           </Card>
         ))}
