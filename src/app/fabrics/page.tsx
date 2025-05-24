@@ -1,6 +1,7 @@
 // app/fabrics/page.tsx
 import { supabase } from '@/lib/supabase'
 import { Card, CardContent } from '@/components/ui/card';
+import Link from "next/link";
 
 interface FabricItem {
   id: string;
@@ -9,13 +10,13 @@ interface FabricItem {
   weave_type: string;
   width_mm: number;
   application: string;
-  brands?: { name: string } | null;
-  suppliers?: { name: string } | null;
+  tf_brands?: { name: string } | null;
+  tf_suppliers?: { name: string } | null;
 }
 
 export default async function FabricsPage() {
   const { data, error } = await supabase
-    .from('glass_fiber_fabrics')
+    .from('tf_glass_fiber_fabrics')
     .select(`
       id,
       name,
@@ -23,8 +24,8 @@ export default async function FabricsPage() {
       weave_type,
       width_mm,
       application,
-      brands(name),
-      suppliers(name)
+      tf_brands(name),
+      tf_suppliers(name)
     `);
 
   if (error) {
@@ -39,17 +40,20 @@ export default async function FabricsPage() {
       <h1 className="text-2xl font-bold">玻璃纤维布产品</h1>
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
         {fabrics?.map((item) => (
-          <Card key={item.id}>
-            <CardContent className="p-4 space-y-1">
-              <h2 className="text-lg font-semibold">{item.name}</h2>
-              <p><span className="font-medium">克重：</span>{item.weight_gsm} g/m²</p>
-              <p><span className="font-medium">组织方式：</span>{item.weave_type}</p>
-              <p><span className="font-medium">宽度：</span>{item.width_mm} mm</p>
-              <p><span className="font-medium">应用：</span>{item.application}</p>
-              <p><span className="font-medium">品牌：</span>{item.brands?.name || '—'}</p>
-              <p><span className="font-medium">供应商：</span>{item.suppliers?.name || '—'}</p>
-            </CardContent>
-          </Card>
+          <Link key={item.id} href={`/fabrics/${item.id}`}>
+            <Card key={item.id}>
+              <CardContent className="p-4 space-y-1">
+                <h2 className="text-lg font-semibold">{item.name}</h2>
+                <p><span className="font-medium">克重：</span>{item.weight_gsm} g/m²</p>
+                <p><span className="font-medium">组织方式：</span>{item.weave_type}</p>
+                <p><span className="font-medium">宽度：</span>{item.width_mm} mm</p>
+                <p><span className="font-medium">应用：</span>{item.application}</p>
+                <p><span className="font-medium">品牌：</span>{item.tf_brands?.name || '—'}</p>
+                <p><span className="font-medium">供应商：</span>{item.tf_suppliers?.name || '—'}</p>
+              </CardContent>
+            </Card>
+          </Link>
+          
         ))}
       </div>
     </div>
