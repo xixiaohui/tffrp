@@ -20,7 +20,7 @@ import {MaterialItem} from "@/components/MaterialList";
 export default async function GlassFiberPowdersPage() {
   const { data, error } = await supabase
     .from("tf_glass_fiber_powders")
-    .select("id, name, avg_particle_size_um, moisture_content_pct, whiteness_pct, application, tf_brands(name), tf_suppliers(name)");
+    .select("id, name, type,avg_particle_size_um, moisture_content_pct, whiteness_pct, application, tf_brands(name), tf_suppliers(name)");
 
   if (error) {
     return <div className="text-red-500 p-4">加载失败：{error.message}</div>;
@@ -37,12 +37,12 @@ export default async function GlassFiberPowdersPage() {
 
   const powders = data as unknown as MaterialItem[]
 
+ 
   return (
     <MaterialList
       title="玻璃纤维粉末"
       items={powders || []}
       fields={fields}
-      basePath="/powders"
     />
   );
 }

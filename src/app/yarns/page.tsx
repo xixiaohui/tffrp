@@ -60,7 +60,6 @@ export default async function GlassFiberPowdersPage() {
       title="玻璃纤维纱线"
       items={yarns || []}
       fields={fields}
-      basePath="/yarns"
     />
   );
 }

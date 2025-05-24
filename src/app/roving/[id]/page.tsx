@@ -14,7 +14,7 @@ interface RovingDetail {
   id: string;
   name: string;
   tex: number;
-  type: string;
+  mtype: string;
   compatible_resin: string;
   application: string;
   tf_brands?: { name: string } | null;
@@ -37,7 +37,7 @@ export default function RovingDetailPageClient() {
           id,
           name,
           tex, 
-          type, 
+          mtype, 
           compatible_resin, 
           application,
           tf_brands(name),
@@ -65,7 +65,7 @@ export default function RovingDetailPageClient() {
       <h1 className="text-2xl font-bold">{roving.name}</h1>
       <div className="space-y-2 text-base">
         <p><span className="font-medium">线密度：</span>{roving.tex} Tex</p>
-        <p><span className="font-medium">类型：</span>{roving.type}</p>
+        <p><span className="font-medium">类型：</span>{roving.mtype}</p>
         <p><span className="font-medium">适用树脂：</span>{roving.compatible_resin}</p>
         <p><span className="font-medium">应用：</span>{roving.application}</p>
         <p><span className="font-medium">品牌：</span>{roving.tf_brands?.name || "—"}</p>

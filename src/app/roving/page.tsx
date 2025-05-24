@@ -7,7 +7,7 @@ interface RovingItem {
   id: string;
   name: string;
   tex: number;
-  type: string;
+  mtype: string;
   compatible_resin: string;
   application: string;
   tf_brands?: { name: string } | null;
@@ -21,7 +21,7 @@ export default async function RovingPage() {
       id,
       name,
       tex,
-      type,
+      mtype,
       compatible_resin,
       application,
       tf_brands(name),
@@ -45,7 +45,7 @@ export default async function RovingPage() {
               <CardContent className="p-4 space-y-1">
                 <h2 className="text-lg font-semibold">{item.name}</h2>
                 <p><span className="font-medium">线密度：</span>{item.tex} tex</p>
-                <p><span className="font-medium">类型：</span>{item.type}</p>
+                <p><span className="font-medium">类型：</span>{item.mtype}</p>
                 <p><span className="font-medium">适用树脂：</span>{item.compatible_resin}</p>
                 <p><span className="font-medium">应用：</span>{item.application}</p>
                 <p><span className="font-medium">品牌：</span>{item.tf_brands?.name || '—'}</p>
