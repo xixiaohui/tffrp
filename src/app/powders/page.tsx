@@ -42,6 +42,7 @@ export default async function GlassFiberPowdersPage() {
       title="玻璃纤维粉末"
       items={powders || []}
       fields={fields}
+      basePath="/powders"
     />
   );
 }
