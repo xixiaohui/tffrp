@@ -1,4 +1,3 @@
-
 'use client'
 
 import React, { useEffect, useState } from 'react';
@@ -8,19 +7,17 @@ import Content from './content.mdx';
 
 import { MDXProvider } from '@mdx-js/react';
 
-
 import { components } from '@/components/Mdxdesign'
 
-
 interface ChoppedStrandsDetail {
-    id: string;
-    name: string;
-    length_mm: number;
-    diameter_um: number;
-    compatibility: string;
-    application: string;
-    tf_brands?: { name: string } | null;
-    tf_suppliers?: { name: string } | null;
+  id: string;
+  name: string;
+  length_mm: number;
+  diameter_um: number;
+  compatibility: string;
+  application: string;
+  tf_brands?: { name: string } | null;
+  tf_suppliers?: { name: string } | null;
 }
 
 export default function MatDetailPageClient() {
@@ -50,7 +47,7 @@ export default function MatDetailPageClient() {
         .single();
 
       if (error || !data) {
-        setError('未找到数据');
+        setError('Data not found');
       } else {
         setChoppedStrands(data as unknown as ChoppedStrandsDetail);
       }
@@ -58,24 +55,24 @@ export default function MatDetailPageClient() {
     fetchData();
   }, [id]);
 
-  if (error) return <div className="p-6 text-red-600">加载失败: {error}</div>;
-  if (!choppedstrands) return <div className="p-6">加载中...</div>;
+  if (error) return <div className="p-6 text-red-600">Loading failed: {error}</div>;
+  if (!choppedstrands) return <div className="p-6">Loading...</div>;
 
   return (
     <div className="p-6 max-w-2xl mx-auto space-y-4">
       <h1 className="text-2xl font-bold">{choppedstrands.name}</h1>
       <div className="space-y-2 text-base">
-        <p><span className="font-medium">长度：</span>{choppedstrands.length_mm} mm</p>
-        <p><span className="font-medium">直径：</span>{choppedstrands.diameter_um} μm</p>
-        <p><span className="font-medium">适配树脂：</span>{choppedstrands.compatibility}</p>
-        <p><span className="font-medium">应用：</span>{choppedstrands.application}</p>
-        <p><span className="font-medium">品牌：</span>{choppedstrands.tf_brands?.name || '—'}</p>
-        <p><span className="font-medium">供应商：</span>{choppedstrands.tf_suppliers?.name || '—'}</p>
-</div>
+        <p><span className="font-medium">Length:</span> {choppedstrands.length_mm} mm</p>
+        <p><span className="font-medium">Diameter:</span> {choppedstrands.diameter_um} μm</p>
+        <p><span className="font-medium">Compatible Resins:</span> {choppedstrands.compatibility}</p>
+        <p><span className="font-medium">Application:</span> {choppedstrands.application}</p>
+        <p><span className="font-medium">Brand:</span> {choppedstrands.tf_brands?.name || '—'}</p>
+        <p><span className="font-medium">Supplier:</span> {choppedstrands.tf_suppliers?.name || '—'}</p>
+      </div>
 
       <MDXProvider components={components}>
         <Content />
-      </MDXProvider>;
+      </MDXProvider>
       
     </div>
   );

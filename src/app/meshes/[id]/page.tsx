@@ -1,4 +1,3 @@
-
 'use client'
 
 import React, { useEffect, useState } from 'react';
@@ -8,9 +7,7 @@ import Content from './content.mdx';
 
 import { MDXProvider } from '@mdx-js/react';
 
-
 import { components } from '@/components/Mdxdesign'
-
 
 interface MeshDetail {
     id: string;
@@ -23,7 +20,7 @@ interface MeshDetail {
     tf_suppliers?: { name: string } | null;
 }
 
-export default function MatDetailPageClient() {
+export default function MeshDetailPageClient() {
   const params = useParams();
   const id = params.id;
 
@@ -50,7 +47,7 @@ export default function MatDetailPageClient() {
         .single();
 
       if (error || !data) {
-        setError('未找到数据');
+        setError('Data not found');
       } else {
         setMesh(data as unknown as MeshDetail);
       }
@@ -58,24 +55,24 @@ export default function MatDetailPageClient() {
     fetchData();
   }, [id]);
 
-  if (error) return <div className="p-6 text-red-600">加载失败: {error}</div>;
-  if (!mesh) return <div className="p-6">加载中...</div>;
+  if (error) return <div className="p-6 text-red-600">Loading failed: {error}</div>;
+  if (!mesh) return <div className="p-6">Loading...</div>;
 
   return (
     <div className="p-6 max-w-2xl mx-auto space-y-4">
       <h1 className="text-2xl font-bold">{mesh.name}</h1>
       <div className="space-y-2 text-base">
-        <p><span className="font-medium">克重：</span>{mesh.weight_gsm} g/m²</p>
-        <p><span className="font-medium">网孔大小：</span>{mesh.mesh_size_mm}</p>
-        <p><span className="font-medium">表面处理：</span>{mesh.treatment}</p>
-        <p><span className="font-medium">应用：</span>{mesh.application}</p>
-        <p><span className="font-medium">品牌：</span>{mesh.tf_brands?.name || '—'}</p>
-        <p><span className="font-medium">供应商：</span>{mesh.tf_suppliers?.name || '—'}</p>
+        <p><span className="font-medium">Weight:</span> {mesh.weight_gsm} g/m²</p>
+        <p><span className="font-medium">Mesh Size:</span> {mesh.mesh_size_mm}</p>
+        <p><span className="font-medium">Surface Treatment:</span> {mesh.treatment}</p>
+        <p><span className="font-medium">Application:</span> {mesh.application}</p>
+        <p><span className="font-medium">Brand:</span> {mesh.tf_brands?.name || '—'}</p>
+        <p><span className="font-medium">Supplier:</span> {mesh.tf_suppliers?.name || '—'}</p>
       </div>
 
       <MDXProvider components={components}>
         <Content />
-      </MDXProvider>;
+      </MDXProvider>
       
     </div>
   );

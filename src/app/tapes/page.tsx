@@ -29,31 +29,30 @@ export default async function TapesPage() {
     `);
 
   if (error) {
-    console.error('加载失败:', error.message);
-    return <div className="p-4 text-red-500">加载失败，请稍后再试: {error.message}</div>;
+    console.error('Failed to load:', error.message);
+    return <div className="p-4 text-red-500">Failed to load, please try again later: {error.message}</div>;
   }
 
   const tapes = data as unknown as TapeItem[];
 
   return (
     <div className="p-6 space-y-4">
-      <h1 className="text-2xl font-bold">玻璃纤维胶带产品</h1>
+      <h1 className="text-2xl font-bold">Glass Fiber Tape Products</h1>
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
         {tapes?.map((item) => (
           <Link key={item.id} href={`/tapes/${item.id}`}>
             <Card key={item.id}>
               <CardContent className="p-4 space-y-1">
                 <h2 className="text-lg font-semibold">{item.name}</h2>
-                <p><span className="font-medium">厚度：</span>{item.thickness_mm} mm</p>
-                <p><span className="font-medium">宽度：</span>{item.width_mm} mm</p>
-                <p><span className="font-medium">胶类型：</span>{item.adhesive_type || '—'}</p>
-                <p><span className="font-medium">应用：</span>{item.application}</p>
-                <p><span className="font-medium">品牌：</span>{item.tf_brands?.name || '—'}</p>
-                <p><span className="font-medium">供应商：</span>{item.tf_suppliers?.name || '—'}</p>
+                <p><span className="font-medium">Thickness:</span> {item.thickness_mm} mm</p>
+                <p><span className="font-medium">Width:</span> {item.width_mm} mm</p>
+                <p><span className="font-medium">Adhesive Type:</span> {item.adhesive_type || '—'}</p>
+                <p><span className="font-medium">Application:</span> {item.application}</p>
+                <p><span className="font-medium">Brand:</span> {item.tf_brands?.name || '—'}</p>
+                <p><span className="font-medium">Supplier:</span> {item.tf_suppliers?.name || '—'}</p>
               </CardContent>
             </Card>
           </Link>
-          
         ))}
       </div>
     </div>

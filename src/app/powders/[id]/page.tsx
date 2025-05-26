@@ -1,4 +1,3 @@
-
 'use client'
 
 import React, { useEffect, useState } from 'react';
@@ -8,9 +7,7 @@ import Content from './content.mdx';
 
 import { MDXProvider } from '@mdx-js/react';
 
-
 import { components } from '@/components/Mdxdesign'
-
 
 interface PowderDetail {
   id: string;
@@ -50,7 +47,7 @@ export default function PowderDetailPageClient() {
         .single();
 
       if (error || !data) {
-        setError('未找到数据');
+        setError('Data not found');
       } else {
         setPowder(data as unknown as PowderDetail);
       }
@@ -58,24 +55,24 @@ export default function PowderDetailPageClient() {
     fetchData();
   }, [id]);
 
-  if (error) return <div className="p-6 text-red-600">加载失败: {error}</div>;
-  if (!powder) return <div className="p-6">加载中...</div>;
+  if (error) return <div className="p-6 text-red-600">Loading failed: {error}</div>;
+  if (!powder) return <div className="p-6">Loading...</div>;
 
   return (
     <div className="p-6 max-w-2xl mx-auto space-y-4">
       <h1 className="text-2xl font-bold">{powder.name}</h1>
       <div className="space-y-2 text-base">
-        <p><span className="font-medium">平均粒径：</span>{powder.avg_particle_size_um} μm</p>
-        <p><span className="font-medium">含水率：</span>{powder.moisture_content_pct}%</p>
-        <p><span className="font-medium">白度：</span>{powder.whiteness_pct}%</p>
-        <p><span className="font-medium">应用：</span>{powder.application}</p>
-        <p><span className="font-medium">品牌：</span>{powder.tf_brands?.name || "—"}</p>
-        <p><span className="font-medium">供应商：</span>{powder.tf_suppliers?.name || "—"}</p>
+        <p><span className="font-medium">Average Particle Size:</span> {powder.avg_particle_size_um} μm</p>
+        <p><span className="font-medium">Moisture Content:</span> {powder.moisture_content_pct}%</p>
+        <p><span className="font-medium">Whiteness:</span> {powder.whiteness_pct}%</p>
+        <p><span className="font-medium">Application:</span> {powder.application}</p>
+        <p><span className="font-medium">Brand:</span> {powder.tf_brands?.name || "—"}</p>
+        <p><span className="font-medium">Supplier:</span> {powder.tf_suppliers?.name || "—"}</p>
       </div>
 
       <MDXProvider components={components}>
         <Content />
-      </MDXProvider>;
+      </MDXProvider>
       
     </div>
   );

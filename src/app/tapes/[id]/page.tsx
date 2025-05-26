@@ -1,4 +1,3 @@
-
 'use client'
 
 import React, { useEffect, useState } from 'react';
@@ -47,8 +46,8 @@ export default function TapeDetailPageClient() {
         .single();
 
       if (error || !data) {
-        setError('未找到数据');
-        console.log('Supabase 查询数据:', data);
+        setError('Data not found');
+        console.log('Supabase fetched data:', data);
       } else {
         setTape(data as unknown as TapeDetail);
       }
@@ -56,24 +55,24 @@ export default function TapeDetailPageClient() {
     fetchData();
   }, [id]);
 
-  if (error) return <div className="p-6 text-red-600">加载失败: {error}</div>;
-  if (!tape) return <div className="p-6">加载中...</div>;
+  if (error) return <div className="p-6 text-red-600">Failed to load: {error}</div>;
+  if (!tape) return <div className="p-6">Loading...</div>;
 
   return (
     <div className="p-6 max-w-2xl mx-auto space-y-4">
       <h1 className="text-2xl font-bold">{tape.name}</h1>
       <div className="space-y-2 text-base">
-            <p><span className="font-medium">厚度：</span>{tape.thickness_mm} mm</p>
-            <p><span className="font-medium">宽度：</span>{tape.width_mm} mm</p>
-            <p><span className="font-medium">胶类型：</span>{tape.adhesive_type || '—'}</p>
-            <p><span className="font-medium">应用：</span>{tape.application}</p>
-            <p><span className="font-medium">品牌：</span>{tape.tf_brands?.name || '—'}</p>
-            <p><span className="font-medium">供应商：</span>{tape.tf_suppliers?.name || '—'}</p>
+        <p><span className="font-medium">Thickness:</span> {tape.thickness_mm} mm</p>
+        <p><span className="font-medium">Width:</span> {tape.width_mm} mm</p>
+        <p><span className="font-medium">Adhesive Type:</span> {tape.adhesive_type || '—'}</p>
+        <p><span className="font-medium">Application:</span> {tape.application}</p>
+        <p><span className="font-medium">Brand:</span> {tape.tf_brands?.name || '—'}</p>
+        <p><span className="font-medium">Supplier:</span> {tape.tf_suppliers?.name || '—'}</p>
       </div>
 
       <MDXProvider components={components}>
         <Content />
-      </MDXProvider>;
+      </MDXProvider>
       
     </div>
   );

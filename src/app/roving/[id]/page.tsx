@@ -1,4 +1,3 @@
-
 'use client'
 
 import React, { useEffect, useState } from 'react';
@@ -7,8 +6,7 @@ import { useParams } from 'next/navigation';
 import Content from './content.mdx';
 
 import { MDXProvider } from '@mdx-js/react';
-import { components } from '@/components/Mdxdesign'
-
+import { components } from '@/components/Mdxdesign';
 
 interface RovingDetail {
   id: string;
@@ -48,8 +46,8 @@ export default function RovingDetailPageClient() {
         .single();
 
       if (error || !data) {
-        setError('未找到数据');
-        console.log('Supabase 查询数据:', data);
+        setError('Data not found');
+        console.log('Supabase query result:', data);
       } else {
         setRoving(data as unknown as RovingDetail);
       }
@@ -57,25 +55,24 @@ export default function RovingDetailPageClient() {
     fetchData();
   }, [id]);
 
-  if (error) return <div className="p-6 text-red-600">加载失败: {error}</div>;
-  if (!roving) return <div className="p-6">加载中...</div>;
+  if (error) return <div className="p-6 text-red-600">Failed to load: {error}</div>;
+  if (!roving) return <div className="p-6">Loading...</div>;
 
   return (
     <div className="p-6 max-w-2xl mx-auto space-y-4">
       <h1 className="text-2xl font-bold">{roving.name}</h1>
       <div className="space-y-2 text-base">
-        <p><span className="font-medium">线密度：</span>{roving.tex} Tex</p>
-        <p><span className="font-medium">类型：</span>{roving.mtype}</p>
-        <p><span className="font-medium">适用树脂：</span>{roving.compatible_resin}</p>
-        <p><span className="font-medium">应用：</span>{roving.application}</p>
-        <p><span className="font-medium">品牌：</span>{roving.tf_brands?.name || "—"}</p>
-        <p><span className="font-medium">供应商：</span>{roving.tf_suppliers?.name || "—"}</p>
+        <p><span className="font-medium">Linear Density:</span> {roving.tex} Tex</p>
+        <p><span className="font-medium">Type:</span> {roving.mtype}</p>
+        <p><span className="font-medium">Compatible Resin:</span> {roving.compatible_resin}</p>
+        <p><span className="font-medium">Application:</span> {roving.application}</p>
+        <p><span className="font-medium">Brand:</span> {roving.tf_brands?.name || "—"}</p>
+        <p><span className="font-medium">Supplier:</span> {roving.tf_suppliers?.name || "—"}</p>
       </div>
 
       <MDXProvider components={components}>
         <Content />
-      </MDXProvider>;
-      
+      </MDXProvider>
     </div>
   );
 }

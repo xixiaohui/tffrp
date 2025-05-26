@@ -24,55 +24,55 @@ export default async function AllProductsPage() {
       <MaterialList
         title="1. Glass Fiber Powders"
         items={powders.data as unknown as MaterialItem[] || []}
-        fields={[{ label: '应用', key: 'application' }]}
+        fields={[{ label: 'Application', key: 'application' }]}
 
       />
       <MaterialList
         title="2. Glass Fiber Yarns"
         items={yarns.data as unknown as MaterialItem[] || []}
-        fields={[{ label: '应用', key: 'application' }]}
+        fields={[{ label: 'Application', key: 'application' }]}
 
       />
       <MaterialList
         title="3. Glass Fiber Mats"
         items={mats.data as unknown as MaterialItem[] || []}
-        fields={[{ label: '应用', key: 'application' }]}
+        fields={[{ label: 'Application', key: 'application' }]}
 
       />
       <MaterialList
         title="4. Glass Fiber Roving"
         items={oxides.data as unknown as MaterialItem[] || []}
-        fields={[{ label: '应用', key: 'application' }]}
+        fields={[{ label: 'Application', key: 'application' }]}
 
       />
       <MaterialList
         title="5. Glass Fiber Chopped Strands"
         items={chopped_strands.data as unknown as MaterialItem[] || []}
-        fields={[{ label: '应用', key: 'application' }]}
+        fields={[{ label: 'Application', key: 'application' }]}
 
       />
       <MaterialList
         title="6. Glass Fiber Fabrics"
         items={fabrics.data as unknown as MaterialItem[] || []}
-        fields={[{ label: '应用', key: 'application' }]}
+        fields={[{ label: 'Application', key: 'application' }]}
   
       />
       <MaterialList
         title="7. Glass Fiber Grids"
         items={grids.data as unknown as MaterialItem[] || []}
-        fields={[{ label: '应用', key: 'application' }]}
+        fields={[{ label: 'Application', key: 'application' }]}
 
       />
       <MaterialList
         title="8. Glass Fiber Meshes"
         items={meshes.data as unknown as MaterialItem[] || []}
-        fields={[{ label: '应用', key: 'application' }]}
+        fields={[{ label: 'Application', key: 'application' }]}
 
       />
       <MaterialList
         title="9. Glass Fiber Tapes"
         items={tapes.data as unknown as MaterialItem[] || []}
-        fields={[{ label: '应用', key: 'application' }]}
+        fields={[{ label: 'Application', key: 'application' }]}
 
       />
     </div>

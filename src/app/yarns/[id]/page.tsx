@@ -1,4 +1,3 @@
-
 'use client'
 
 import React, { useEffect, useState } from 'react';
@@ -8,7 +7,6 @@ import Content from './content.mdx';
 
 import { MDXProvider } from '@mdx-js/react';
 import { components } from '@/components/Mdxdesign'
-
 
 interface YarnsDetail {
   id: string;
@@ -50,7 +48,7 @@ export default function YarnDetailPageClient() {
         .single();
 
       if (error || !data) {
-        setError('未找到数据');
+        setError('Data not found');
       } else {
         setYarn(data as unknown as YarnsDetail);
       }
@@ -58,26 +56,25 @@ export default function YarnDetailPageClient() {
     fetchData();
   }, [id]);
 
-  if (error) return <div className="p-6 text-red-600">加载失败: {error}</div>;
-  if (!yarn) return <div className="p-6">加载中...</div>;
+  if (error) return <div className="p-6 text-red-600">Failed to load: {error}</div>;
+  if (!yarn) return <div className="p-6">Loading...</div>;
 
   return (
     <div className="p-6 max-w-2xl mx-auto space-y-4">
       <h1 className="text-2xl font-bold">{yarn.name}</h1>
       <div className="space-y-2 text-base">
-        <p><span className="font-medium">线密度：</span>{yarn.linear_density_tex} Tex</p>
-        <p><span className="font-medium">捻度：</span>{yarn.filament_count}捻/米</p>
-        <p><span className="font-medium">单丝直径：</span>{yarn.filament_diameter_um}μm</p>
-        <p><span className="font-medium">捻度等级：</span>{yarn.twist_level}</p>
-        <p><span className="font-medium">应用：</span>{yarn.application}</p>
-        <p><span className="font-medium">品牌：</span>{yarn.tf_brands?.name || "—"}</p>
-        <p><span className="font-medium">供应商：</span>{yarn.tf_suppliers?.name || "—"}</p>
+        <p><span className="font-medium">Linear Density:</span> {yarn.linear_density_tex} Tex</p>
+        <p><span className="font-medium">Filament Count:</span> {yarn.filament_count} filaments/meter</p>
+        <p><span className="font-medium">Filament Diameter:</span> {yarn.filament_diameter_um} μm</p>
+        <p><span className="font-medium">Twist Level:</span> {yarn.twist_level}</p>
+        <p><span className="font-medium">Application:</span> {yarn.application}</p>
+        <p><span className="font-medium">Brand:</span> {yarn.tf_brands?.name || "—"}</p>
+        <p><span className="font-medium">Supplier:</span> {yarn.tf_suppliers?.name || "—"}</p>
       </div>
 
       <MDXProvider components={components}>
         <Content />
-      </MDXProvider>;
-      
+      </MDXProvider>
     </div>
   );
 }

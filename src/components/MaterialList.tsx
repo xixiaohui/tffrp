@@ -45,11 +45,11 @@ export function MaterialList({ title, items, fields }: Props) {
                     </p>
                   ))}
                   <p>
-                    <span className="font-medium">品牌：</span>
+                    <span className="font-medium">Brand：</span>
                     {brand}
                   </p>
                   <p>
-                    <span className="font-medium">供应商：</span>
+                    <span className="font-medium">Supplier：</span>
                     {supplier}
                   </p>
                 </CardContent>

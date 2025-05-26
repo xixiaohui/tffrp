@@ -50,7 +50,7 @@ export default function MatDetailPageClient() {
         .single();
 
       if (error || !data) {
-        setError('未找到数据');
+        setError('Data not found');
       } else {
         setFabric(data as unknown as FabricDetail);
       }
@@ -58,24 +58,24 @@ export default function MatDetailPageClient() {
     fetchData();
   }, [id]);
 
-  if (error) return <div className="p-6 text-red-600">加载失败: {error}</div>;
-  if (!fabric) return <div className="p-6">加载中...</div>;
+  if (error) return <div className="p-6 text-red-600">Loading failed: {error}</div>;
+  if (!fabric) return <div className="p-6">Loading...</div>;
 
   return (
     <div className="p-6 max-w-2xl mx-auto space-y-4">
       <h1 className="text-2xl font-bold">{fabric.name}</h1>
       <div className="space-y-2 text-base">
-        <p><span className="font-medium">克重：</span>{fabric.weight_gsm} g/m²</p>
-        <p><span className="font-medium">组织方式：</span>{fabric.weave_type}</p>
-        <p><span className="font-medium">宽度：</span>{fabric.width_mm} mm</p>
-        <p><span className="font-medium">应用：</span>{fabric.application}</p>
-        <p><span className="font-medium">品牌：</span>{fabric.tf_brands?.name || '—'}</p>
-        <p><span className="font-medium">供应商：</span>{fabric.tf_suppliers?.name || '—'}</p>
+        <p><span className="font-medium">Weight:</span> {fabric.weight_gsm} g/m²</p>
+        <p><span className="font-medium">Weave Type:</span> {fabric.weave_type}</p>
+        <p><span className="font-medium">Width:</span> {fabric.width_mm} mm</p>
+        <p><span className="font-medium">Application:</span> {fabric.application}</p>
+        <p><span className="font-medium">Brand:</span> {fabric.tf_brands?.name || '—'}</p>
+        <p><span className="font-medium">Supplier:</span> {fabric.tf_suppliers?.name || '—'}</p>
       </div>
 
       <MDXProvider components={components}>
         <Content />
-      </MDXProvider>;
+      </MDXProvider>
       
     </div>
   );

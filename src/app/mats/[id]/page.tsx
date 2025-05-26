@@ -1,4 +1,3 @@
-
 'use client'
 
 import React, { useEffect, useState } from 'react';
@@ -8,9 +7,7 @@ import Content from './content.mdx';
 
 import { MDXProvider } from '@mdx-js/react';
 
-
 import { components } from '@/components/Mdxdesign'
-
 
 interface MatDetail {
   id: string;
@@ -48,7 +45,7 @@ export default function MatDetailPageClient() {
         .single();
 
       if (error || !data) {
-        setError('未找到数据');
+        setError('Data not found');
       } else {
         setMat(data as unknown as MatDetail);
       }
@@ -56,23 +53,23 @@ export default function MatDetailPageClient() {
     fetchData();
   }, [id]);
 
-  if (error) return <div className="p-6 text-red-600">加载失败: {error}</div>;
-  if (!mat) return <div className="p-6">加载中...</div>;
+  if (error) return <div className="p-6 text-red-600">Loading failed: {error}</div>;
+  if (!mat) return <div className="p-6">Loading...</div>;
 
   return (
     <div className="p-6 max-w-2xl mx-auto space-y-4">
       <h1 className="text-2xl font-bold">{mat.name}</h1>
       <div className="space-y-2 text-base">
-        <p><span className="font-medium">克重：</span>{mat.weight_gsm} g/m²</p>
-        <p><span className="font-medium">厚度：</span>{mat.thickness_mm}%</p>
-        <p><span className="font-medium">应用：</span>{mat.application}</p>
-        <p><span className="font-medium">品牌：</span>{mat.tf_brands?.name || "—"}</p>
-        <p><span className="font-medium">供应商：</span>{mat.tf_suppliers?.name || "—"}</p>
+        <p><span className="font-medium">Weight:</span> {mat.weight_gsm} g/m²</p>
+        <p><span className="font-medium">Thickness:</span> {mat.thickness_mm} mm</p>
+        <p><span className="font-medium">Application:</span> {mat.application}</p>
+        <p><span className="font-medium">Brand:</span> {mat.tf_brands?.name || "—"}</p>
+        <p><span className="font-medium">Supplier:</span> {mat.tf_suppliers?.name || "—"}</p>
       </div>
 
       <MDXProvider components={components}>
         <Content />
-      </MDXProvider>;
+      </MDXProvider>
       
     </div>
   );
