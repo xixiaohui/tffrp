@@ -1,7 +1,7 @@
-import Image from "next/image";
+// import Image from "next/image";
 import HomeBanner from '@/components/HomeBanner';
 
-import { Search , BrickWallFire, PackageSearch , StoreIcon} from 'lucide-react'
+// import { Search , BrickWallFire, PackageSearch , StoreIcon} from 'lucide-react'
 
 export default function Home() {
   return (
