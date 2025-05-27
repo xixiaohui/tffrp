@@ -9,6 +9,8 @@ import { MDXProvider } from '@mdx-js/react';
 
 import { components } from '@/components/Mdxdesign'
 
+import ContactCTA from '@/components/ContactCTA'
+
 interface MeshDetail {
     id: string;
     name: string;
@@ -74,6 +76,10 @@ export default function MeshDetailPageClient() {
         <Content />
       </MDXProvider>
       
+      <div>
+        <ContactCTA />
+      </div>
+
     </div>
   );
 }

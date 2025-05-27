@@ -9,6 +9,8 @@ import { MDXProvider } from '@mdx-js/react';
 
 import { components } from '@/components/Mdxdesign'
 
+import ContactCTA from '@/components/ContactCTA'
+
 interface ChoppedStrandsDetail {
   id: string;
   name: string;
@@ -73,6 +75,10 @@ export default function MatDetailPageClient() {
       <MDXProvider components={components}>
         <Content />
       </MDXProvider>
+
+      <div>
+        <ContactCTA />
+      </div>
       
     </div>
   );

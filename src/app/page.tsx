@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { Search , BrickWallFire, PackageSearch , StoreIcon} from 'lucide-react'
 
 export default function Home() {
   return (
@@ -24,59 +25,50 @@ export default function Home() {
         <div className="flex gap-4 items-center flex-col sm:flex-row">
           <a
             className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
-            href="mailto:info@tffrp.com"
-            target="_blank"
+            href="/materials"
+            
             rel="noopener noreferrer"
           >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Contact Us
+            <Search />
+            More Products
           </a>
           <a
             className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]"
-            href="mailto:info@tffrp.com"
-            target="_blank"
+            href="/contact"
+  
             rel="noopener noreferrer"
           >
-            info@tffrp.com
+            Contact Us
           </a>
         </div>
       </main>
       <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
         <a
           className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href=""
-          target="_blank"
+          href="/all-materials"
+        
           rel="noopener noreferrer"
         >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Fiberglass Roving
+          <BrickWallFire />
+          All Materials
         </a>
         <a
           className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href=""
-          target="_blank"
+          href="/products"
+        
           rel="noopener noreferrer"
         >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Fiberglass Yarns
+          <PackageSearch />
+          All Products
+        </a>
+        <a
+          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
+          href="/about"
+        
+          rel="noopener noreferrer"
+        >
+          <StoreIcon />
+          About Us
         </a>
         
       </footer>

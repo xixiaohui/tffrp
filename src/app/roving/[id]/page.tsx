@@ -8,6 +8,8 @@ import Content from './content.mdx';
 import { MDXProvider } from '@mdx-js/react';
 import { components } from '@/components/Mdxdesign';
 
+import ContactCTA from '@/components/ContactCTA'
+
 interface RovingDetail {
   id: string;
   name: string;
@@ -73,6 +75,10 @@ export default function RovingDetailPageClient() {
       <MDXProvider components={components}>
         <Content />
       </MDXProvider>
+
+      <div>
+        <ContactCTA />
+      </div>
     </div>
   );
 }

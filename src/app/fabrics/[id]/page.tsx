@@ -8,8 +8,9 @@ import Content from './content.mdx';
 
 import { MDXProvider } from '@mdx-js/react';
 
-
 import { components } from '@/components/Mdxdesign'
+
+import ContactCTA from '@/components/ContactCTA'
 
 
 interface FabricDetail {
@@ -77,6 +78,9 @@ export default function MatDetailPageClient() {
         <Content />
       </MDXProvider>
       
+      <div>
+        <ContactCTA />
+      </div>
     </div>
   );
 }
