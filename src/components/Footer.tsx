@@ -99,7 +99,7 @@ export default function Footer() {
             Address: Room 1716, Building C, Greenland Blue Sea, Qianshan Road,
             Hefei, Anhui Province, China
           </p>
-          <div className="max-w-md mx-auto mt-10">
+          <div className="max-w-md mx-auto mt-10 hidden md:block">
             <WhatsAppQRCode />
           </div>
         </div>

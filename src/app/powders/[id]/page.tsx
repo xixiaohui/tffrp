@@ -13,6 +13,8 @@ import ContactCTA from '@/components/ContactCTA'
 
 import { ImageCard } from '@/components/ImageCard'
 
+
+
 interface PowderDetail {
   id: string;
   name: string;

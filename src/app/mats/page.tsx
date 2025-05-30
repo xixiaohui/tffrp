@@ -1,7 +1,9 @@
 // app/mats/page.tsx
 import { supabase } from '@/lib/supabase'
-import { Card, CardContent } from '@/components/ui/card';
+// import { Card, CardContent } from '@/components/ui/card';
 import Link from "next/link";
+
+import ProductCard  from '@/components/ProductCard';
 
 interface MatItem {
   id: string;
@@ -36,12 +38,12 @@ export default async function MatsPage() {
   const mats = data as unknown as MatItem[]
 
   return (
-    <div className="p-6 space-y-4">
+    <div className="max-w-7xl mx-auto p-4">
       <h1 className="text-2xl font-bold">Glass Fiber Chopped Mat Products</h1>
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
         {mats?.map((item) => (
           <Link key={item.id} href={`/mats/${item.id}`}>
-            <Card key={item.id}>
+            {/* <Card key={item.id}>
               <CardContent className="p-4 space-y-1">
                 <h2 className="text-lg font-semibold">{item.name}</h2>
                 <p><span className="font-medium">Weight:</span> {item.weight_gsm} g/m²</p>
@@ -50,7 +52,10 @@ export default async function MatsPage() {
                 <p><span className="font-medium">Brand:</span> {item.tf_brands?.name || '—'}</p>
                 <p><span className="font-medium">Supplier:</span> {item.tf_suppliers?.name || '—'}</p>
               </CardContent>
-            </Card>
+            </Card> */}
+
+            <ProductCard key={item.id} product={item}/>
+            
           </Link>
         ))}
       </div>

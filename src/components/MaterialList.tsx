@@ -23,9 +23,9 @@ interface Props {
 
 export function MaterialList({ title, items, fields }: Props) {
   return (
-    <div className="p-6 space-y-4">
+    <div className="max-w-7xl mx-auto p-4">
       <h1 className="text-2xl font-bold">{title}</h1>
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
         {items.map((item) => {
           const brand = item.brand ?? item.tf_brands?.name ?? "—";
           const supplier = item.supplier ?? item.tf_suppliers?.name ?? "—";
@@ -52,6 +52,10 @@ export function MaterialList({ title, items, fields }: Props) {
                     <span className="font-medium">Supplier：</span>
                     {supplier}
                   </p>
+
+                  <button className="mt-2 px-3 py-1 text-sm bg-blue-600 text-white rounded-full hover:bg-blue-700">
+                    more info
+                  </button>
                 </CardContent>
               </Card>
             </Link>
