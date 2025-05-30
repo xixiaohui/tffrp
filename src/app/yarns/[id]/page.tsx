@@ -10,6 +10,8 @@ import { components } from '@/components/Mdxdesign'
 
 import ContactCTA from '@/components/ContactCTA'
 
+import { ImageCard } from '@/components/ImageCard'
+
 interface YarnsDetail {
   id: string;
   name: string;
@@ -63,8 +65,15 @@ export default function YarnDetailPageClient() {
 
   return (
     <div className="p-6 max-w-2xl mx-auto space-y-4">
-      <h1 className="text-2xl font-bold">{yarn.name}</h1>
-      <div className="space-y-2 text-base">
+
+      <ImageCard
+        src="/images/yarns.jpg"
+        alt="Fiber Glass Yarns"
+        title={yarn.name}
+        description=""
+      />
+
+      <div className="space-y-2 text-base bg-gray-50">
         <p><span className="font-medium">Linear Density:</span> {yarn.linear_density_tex} Tex</p>
         <p><span className="font-medium">Filament Count:</span> {yarn.filament_count} filaments/meter</p>
         <p><span className="font-medium">Filament Diameter:</span> {yarn.filament_diameter_um} μm</p>

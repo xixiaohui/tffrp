@@ -11,6 +11,8 @@ import { components } from '@/components/Mdxdesign'
 
 import ContactCTA from '@/components/ContactCTA'
 
+import { ImageCard } from '@/components/ImageCard'
+
 interface PowderDetail {
   id: string;
   name: string;
@@ -62,8 +64,15 @@ export default function PowderDetailPageClient() {
 
   return (
     <div className="p-6 max-w-2xl mx-auto space-y-4">
-      <h1 className="text-2xl font-bold">{powder.name}</h1>
-      <div className="space-y-2 text-base">
+
+      <ImageCard
+        src="/images/powder.jpg"
+        alt="Fiber Glass Powder"
+        title={powder.name}
+        description=""
+      />
+
+      <div className="space-y-2 text-base bg-gray-50">
         <p><span className="font-medium">Average Particle Size:</span> {powder.avg_particle_size_um} μm</p>
         <p><span className="font-medium">Moisture Content:</span> {powder.moisture_content_pct}%</p>
         <p><span className="font-medium">Whiteness:</span> {powder.whiteness_pct}%</p>

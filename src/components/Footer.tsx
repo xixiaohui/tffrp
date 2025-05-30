@@ -1,6 +1,8 @@
-'use client';
+"use client";
 
-import Link from 'next/link';
+import Link from "next/link";
+import WhatsAppQRCode from "@/components/WhatsAppQRCode";
+import SocialLinks from "@/components/SocialLinks";
 
 export default function Footer() {
   return (
@@ -62,16 +64,44 @@ export default function Footer() {
         <div>
           <h3 className="text-lg font-semibold mb-4">About Us</h3>
           <p className="text-sm leading-relaxed">
-            We are a platform dedicated to organizing and sharing information on fiberglass raw materials, serving professionals in composites, procurement, and R&D.
+            We are a platform dedicated to organizing and sharing information on
+            fiberglass raw materials, serving professionals in composites,
+            procurement, and R&D.
           </p>
+          <div className="mt-4">
+            <SocialLinks
+              links={[
+                {
+                  platform: "linkedin",
+                  url: "https://www.linkedin.com/company/anhui-tianfu-new-material/",
+                },
+                { platform: "twitter", url: "https://x.com/HuangChauncy" },
+                {
+                  platform: "facebook",
+                  url: "https://www.facebook.com/profile.php?id=61563429747228",
+                },
+                {
+                  platform: "youtube",
+                  url: "https://www.youtube.com/@tfcomposite2024",
+                },
+              ]}
+              size={28}
+            />
+          </div>
+          
         </div>
 
         {/* Contact Us */}
         <div>
           <h3 className="text-lg font-semibold mb-4">Contact Us</h3>
           <p className="text-sm">Email: sales@tfcomposite.com</p>
-          <p className="text-sm">Phone: +86 136 9677 1864</p>
-          <p className="text-sm">Address: Room 1716, Building C, Greenland Blue Sea, Qianshan Road, Hefei, Anhui Province, China</p>
+          <p className="text-sm">
+            Address: Room 1716, Building C, Greenland Blue Sea, Qianshan Road,
+            Hefei, Anhui Province, China
+          </p>
+          <div className="max-w-md mx-auto mt-10">
+            <WhatsAppQRCode />
+          </div>
         </div>
       </div>
 

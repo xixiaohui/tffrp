@@ -10,6 +10,8 @@ import { components } from '@/components/Mdxdesign';
 
 import ContactCTA from '@/components/ContactCTA'
 
+import { ImageCard } from '@/components/ImageCard'
+
 interface RovingDetail {
   id: string;
   name: string;
@@ -62,8 +64,14 @@ export default function RovingDetailPageClient() {
 
   return (
     <div className="p-6 max-w-2xl mx-auto space-y-4">
-      <h1 className="text-2xl font-bold">{roving.name}</h1>
-      <div className="space-y-2 text-base">
+
+      <ImageCard
+        src="/images/roving.jpg"
+        alt="Direct Roving"
+        title={roving.name}
+        description=""
+      />
+      <div className="space-y-2 text-base bg-gray-50">
         <p><span className="font-medium">Linear Density:</span> {roving.tex} Tex</p>
         <p><span className="font-medium">Type:</span> {roving.mtype}</p>
         <p><span className="font-medium">Compatible Resin:</span> {roving.compatible_resin}</p>

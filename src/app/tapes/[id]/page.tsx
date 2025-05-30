@@ -10,6 +10,8 @@ import { components } from '@/components/Mdxdesign'
 
 import ContactCTA from '@/components/ContactCTA'
 
+import { ImageCard } from '@/components/ImageCard'
+
 interface TapeDetail {
     id: string;
     name: string;
@@ -62,8 +64,15 @@ export default function TapeDetailPageClient() {
 
   return (
     <div className="p-6 max-w-2xl mx-auto space-y-4">
-      <h1 className="text-2xl font-bold">{tape.name}</h1>
-      <div className="space-y-2 text-base">
+
+      <ImageCard
+        src="/images/tape.jpg"
+        alt="Fiber Glass Tape"
+        title={tape.name}
+        description=""
+      />
+
+      <div className="space-y-2 text-base bg-gray-50">
         <p><span className="font-medium">Thickness:</span> {tape.thickness_mm} mm</p>
         <p><span className="font-medium">Width:</span> {tape.width_mm} mm</p>
         <p><span className="font-medium">Adhesive Type:</span> {tape.adhesive_type || '—'}</p>

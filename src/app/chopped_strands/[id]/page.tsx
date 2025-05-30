@@ -10,6 +10,7 @@ import { MDXProvider } from '@mdx-js/react';
 import { components } from '@/components/Mdxdesign'
 
 import ContactCTA from '@/components/ContactCTA'
+import { ImageCard } from '@/components/ImageCard'
 
 interface ChoppedStrandsDetail {
   id: string;
@@ -62,8 +63,15 @@ export default function MatDetailPageClient() {
 
   return (
     <div className="p-6 max-w-2xl mx-auto space-y-4">
-      <h1 className="text-2xl font-bold">{choppedstrands.name}</h1>
-      <div className="space-y-2 text-base">
+
+      <ImageCard
+        src="/images/chopped_strand.jpg"
+        alt="Chopped strand loading"
+        title={choppedstrands.name}
+        description=""
+      />
+
+      <div className="space-y-2 text-base bg-gray-50">
         <p><span className="font-medium">Length:</span> {choppedstrands.length_mm} mm</p>
         <p><span className="font-medium">Diameter:</span> {choppedstrands.diameter_um} μm</p>
         <p><span className="font-medium">Compatible Resins:</span> {choppedstrands.compatibility}</p>

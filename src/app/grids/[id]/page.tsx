@@ -10,6 +10,7 @@ import { MDXProvider } from '@mdx-js/react';
 import { components } from '@/components/Mdxdesign'
 
 import ContactCTA from '@/components/ContactCTA'
+import { ImageCard } from '@/components/ImageCard'
 
 interface GridDetail {
   id: string;
@@ -61,8 +62,14 @@ export default function GridDetailPageClient() {
 
   return (
     <div className="p-6 max-w-2xl mx-auto space-y-4">
-      <h1 className="text-2xl font-bold">{grid.name}</h1>
-      <div className="space-y-2 text-base">
+      <ImageCard
+        src="/images/grid.jpg"
+        alt="Fiber Glass Grid"
+        title={grid.name}
+        description=""
+      />
+
+      <div className="space-y-2 text-base bg-gray-50">
         <p><span className="font-medium">Weight:</span> {grid.weight_gsm} g/m²</p>
         <p><span className="font-medium">Mesh Size:</span> {grid.mesh_size_mm} mm</p>
         <p><span className="font-medium">Tensile Strength:</span> {grid.tensile_strength_mpa} MPa</p>

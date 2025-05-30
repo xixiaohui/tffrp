@@ -11,6 +11,8 @@ import { components } from '@/components/Mdxdesign'
 
 import ContactCTA from '@/components/ContactCTA'
 
+import { ImageCard } from '@/components/ImageCard'
+
 interface MatDetail {
   id: string;
   name: string;
@@ -60,8 +62,14 @@ export default function MatDetailPageClient() {
 
   return (
     <div className="p-6 max-w-2xl mx-auto space-y-4">
-      <h1 className="text-2xl font-bold">{mat.name}</h1>
-      <div className="space-y-2 text-base">
+      <ImageCard
+        src="/images/mat.jpg"
+        alt="Chopped strand mat "
+        title={mat.name}
+        description=""
+      />
+      
+      <div className="space-y-2 text-base bg-gray-50">
         <p><span className="font-medium">Weight:</span> {mat.weight_gsm} g/m²</p>
         <p><span className="font-medium">Thickness:</span> {mat.thickness_mm} mm</p>
         <p><span className="font-medium">Application:</span> {mat.application}</p>

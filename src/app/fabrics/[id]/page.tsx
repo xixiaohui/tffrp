@@ -11,7 +11,7 @@ import { MDXProvider } from '@mdx-js/react';
 import { components } from '@/components/Mdxdesign'
 
 import ContactCTA from '@/components/ContactCTA'
-
+import { ImageCard } from '@/components/ImageCard'
 
 interface FabricDetail {
     id: string;
@@ -64,8 +64,14 @@ export default function MatDetailPageClient() {
 
   return (
     <div className="p-6 max-w-2xl mx-auto space-y-4">
-      <h1 className="text-2xl font-bold">{fabric.name}</h1>
-      <div className="space-y-2 text-base">
+      <ImageCard
+        src="/images/fabric.jpg"
+        alt="Fiber Glass Fabrics"
+        title={fabric.name}
+        description=""
+      />
+
+      <div className="space-y-2 text-base bg-gray-50">
         <p><span className="font-medium">Weight:</span> {fabric.weight_gsm} g/m²</p>
         <p><span className="font-medium">Weave Type:</span> {fabric.weave_type}</p>
         <p><span className="font-medium">Width:</span> {fabric.width_mm} mm</p>
