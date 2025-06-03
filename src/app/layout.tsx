@@ -3,6 +3,7 @@ import { Geist, Geist_Mono } from "next/font/google";
 
 import "./globals.css";
 
+import Navbar from '@/components/Navbar'
 import Footer from '@/components/Footer';
 
 const geistSans = Geist({
@@ -25,6 +26,14 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+
+  const navItems = [
+    { label: 'Home', href: '/' },
+    { label: 'Products', href: '/materials' },
+    { label: 'About Us', href: '/about' },
+    { label: 'Contact Us', href: '/contact' },
+  ]
+
   return (
     <html lang="en">
       <head>
@@ -33,6 +42,8 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
+        <Navbar items={navItems} brand="TF FRP" />
+
         {children}
 
         {/* Footer */}
