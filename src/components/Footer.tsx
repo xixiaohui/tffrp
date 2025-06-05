@@ -19,7 +19,7 @@ export default function Footer() {
             </li>
             <li>
               <Link href="/fabrics" className="hover:underline">
-                Fiberglass Fabric
+                Fiber Glass Fabric
               </Link>
             </li>
             <li>
@@ -88,7 +88,6 @@ export default function Footer() {
               size={28}
             />
           </div>
-          
         </div>
 
         {/* Contact Us */}
